@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 #define BUF_LENGTH 256
 
 
@@ -34,21 +35,23 @@ exercicio c -> o que foi dito na alínea anterior é confirmado com a verificaç
 
 */
 
-
-int main(void){
+//exercicios d e e
+/*int main(void){
 
     FILE *src, *dst;
     char buf[BUF_LENGTH];
 
     if ( ( src = fopen( "infile.txt", "r" ) ) == NULL ) {
         //perror("1. Error"); //mostra no ecrã uma mensagem de erro --> alinea d
-        printf("1. errno = %d\n", errno); //alinea e
+        //printf("1. Value of errno: %d\n", errno); //alinea e
+        //printf("1. Error opening file: %s\n", strerror(errno)); //alinea e
         exit(1);
     }
 
     if ( ( dst = fopen( "outfile.txt", "w" ) ) == NULL ) {
         //perror("2. Error"); --> alinea d
-        printf("2. errno = %d\n", errno); //alinea e
+        //printf("2. Value of errno: %d\n", errno); //alinea e
+        //printf("2. Error opening file: %s\n", strerror(errno)); //alinea e
         exit(2);
     }
 
@@ -59,4 +62,30 @@ int main(void){
     fclose(src);
     fclose(dst);
     exit(0); 
+}*/
+
+int main(void){
+
+    FILE *src, *dst;
+    char buf[BUF_LENGTH];
+
+    if (( src = fopen( "infile.txt", "r" )) == NULL ) {
+        exit(1);
+    }
+
+    if (( dst = fopen( "outfile.txt", "w" )) == NULL ) {
+        exit(2);
+    }
+
+    while(( fgets( buf, BUF_LENGTH, src )) != NULL ) {
+        fputs( buf, dst );
+    }
+
+    fclose(src);
+    fclose(dst);
+    exit(0); 
 }
+
+
+
+
