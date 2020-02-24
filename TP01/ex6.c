@@ -64,16 +64,26 @@ exercicio c -> o que foi dito na alínea anterior é confirmado com a verificaç
     exit(0); 
 }*/
 
-int main(void){
+
+
+int main(int argc, char *argv[]){
 
     FILE *src, *dst;
     char buf[BUF_LENGTH];
 
-    if (( src = fopen( "infile.txt", "r" )) == NULL ) {
+    if(argc < 3){ //exercicio h --> argv[0] dá o nome do executavel
+        printf("usage: %s file1 file2\n", argv[0]);
         exit(1);
     }
 
-    if (( dst = fopen( "outfile.txt", "w" )) == NULL ) {
+    char *file1 = argv[1], *file2 = argv[2];
+
+
+    if (( src = fopen(file1, "r" )) == NULL ) {
+        exit(1);
+    }
+
+    if (( dst = fopen(file2, "w" )) == NULL ) {
         exit(2);
     }
 
