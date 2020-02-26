@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#define BUF_LENGTH 256
+#define BUF_LENGTH 512
 
 //exercicio a
 /*int main(void){
