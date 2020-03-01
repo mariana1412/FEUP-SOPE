@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
             return 2;
         }
         
-        dup2(fd2, STDOUT_FILENO);
+        dup2(fd2, STDOUT_FILENO); //exercicio b
     }
 
 
