@@ -18,7 +18,7 @@
 	}
 
 
-    int f1 = open(argv[1], O_WRONLY|O_TRUNC);
+    int f1 = open(argv[1], O_WRONLY|O_TRUNC); //abertura só para escrita; se o ficheiro existir fica com o comprimento 0
 
 	if(f1 == -1){
 		printf("Failed to open file for writing!\n");
@@ -70,7 +70,7 @@ typedef struct Student{
 int reading(){
 
 
-	int f1 = open("ola.txt", O_RDONLY);
+	int f1 = open("ola.txt", O_RDONLY); //abertura só para leitura
 
 	if(f1 == -1){
 		printf("Failed to open file for writing!\n");
