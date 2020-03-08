@@ -17,7 +17,7 @@ int main(int argc, char *argv[], char *envp[]) {
         printf("My child is going to execute command \"ls -laR %s\"\n", argv[1]);
     
     else if (pid == 0){
-        execlp("ls","-laR", argv[1], NULL); //o processo‐filho faz o que o processo‐pai anuncia que ele vai fazer
+        execlp("ls","-laR", argv[1], NULL); //o processo‐filho faz o que o processo‐pai anuncia que ele vai fazer --> alinea a
         printf("Command not executed !\n");
         exit(1);
     }
