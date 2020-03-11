@@ -5,13 +5,15 @@
 
 
 int main(int argc, char *argv[], char *envp[]) {
+
     pid_t pid;
+    
     if (argc != 2) {
         printf("usage: %s dirname\n",argv[0]);
         exit(1);
     }
 
-    pid=fork();
+    pid = fork();
     char *command[] = {"ls", "-laR", NULL};
 
     if (pid > 0)

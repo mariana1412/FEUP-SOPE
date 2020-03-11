@@ -15,10 +15,13 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    pid=fork();
+    pid = fork();
     
-
-    if (pid > 0){
+    if(pid < 0){
+        perror("Fork Error");
+        exit(2);
+    }
+    else if (pid > 0){
         printf("My child is going to execute command \"ls -laR %s\"\n", argv[1]);
         childpid = wait(&status);
 
@@ -30,15 +33,12 @@ int main(int argc, char *argv[]) {
         }
         else if(WIFSTOPPED(status)){
             printf("A child with PID %d stopped because of the SIGNAL NUMBER %d\n", childpid, WSTOPSIG(status));
-        }
-
-
-        
+        }        
     }
     else if (pid == 0){
         execlp("ls", "ls", "-laR", argv[1], NULL);
         printf("Command not executed !\n");
-        exit(1);
+        exit(3);
     }
 
     exit(0);
